@@ -23,13 +23,27 @@ app.get('/', (req,res) => {
     });
 });
 
-app.get('/mews', (req,res) => {
+app.get('/mews', (req,res,next) => {
     
+
     mews.find() // dapatkan semua data dari mews
     .then(mews => { // selanjutnya 
         res.json(mews); //isi res dengan json dari data mews yang sudah di dapatkan
-    });
-})
+    }).catch(next);
+});
+
+app.get('/v2/mews', (req,res,next) => {
+    let skip = Number(req.query.skip) || 0;
+    let limit = Number(req.query.limit) || 10;
+    
+    mews.find({},{
+        skip,
+        limit
+    }) // dapatkan semua data dari mews
+    .then(mews => { // selanjutnya 
+        res.json(mews); //isi res dengan json dari data mews yang sudah di dapatkan
+    }).catch(next);
+});
 
 
 function isValidMew(mew)

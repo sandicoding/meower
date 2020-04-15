@@ -4,7 +4,7 @@ console.log('hello world');
 const form = document.querySelector('form');
 const loadingElement = document.querySelector('.loading');
 const mewsElement = document.querySelector('.mews');
-const API_URL = 'http://localhost:5000/mews';
+const API_URL = window.location.hostname ==='127.0.0.1' ? 'http://localhost:5000/mews' : 'https://meower-v1-api.now.sh/mews';
 
 
 loadingElement.style.display = '';
