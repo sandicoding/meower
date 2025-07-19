@@ -16,7 +16,7 @@
     "express": "^4.17.1",
     "express-rate-limit": "^5.1.1",
     "monk": "^7.1.2",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.3"
